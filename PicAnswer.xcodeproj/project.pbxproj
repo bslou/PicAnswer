@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551C38942988B38A00F3D3D4 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C38932988B38A00F3D3D4 /* PhotoViewController.swift */; };
+		553CD6BA2987DF1000865840 /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CD6B92987DF1000865840 /* OCRViewController.swift */; };
+		555107A92989C8D600A1CA82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555107A82989C8D600A1CA82 /* GoogleService-Info.plist */; };
+		555107AC2989CAD300A1CA82 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 555107AB2989CAD300A1CA82 /* FirebaseAuth */; };
+		555107AE2989CAD300A1CA82 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 555107AD2989CAD300A1CA82 /* FirebaseDatabase */; };
+		555107B02989CAD300A1CA82 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 555107AF2989CAD300A1CA82 /* FirebaseFirestore */; };
+		555107B22989CAD300A1CA82 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 555107B12989CAD300A1CA82 /* FirebaseStorage */; };
+		555107B42989CDD800A1CA82 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555107B32989CDD800A1CA82 /* RegisterViewController.swift */; };
+		555107B82989D0D400A1CA82 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555107B72989D0D400A1CA82 /* MainViewController.swift */; };
+		556B915B2989D45500906F83 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B915A2989D45500906F83 /* LoginViewController.swift */; };
+		55AB8A2E2988FC6F00E3C310 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 55AB8A2D2988FC6F00E3C310 /* OpenAISwift */; };
+		55AB8A30298909A400E3C310 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB8A2F298909A400E3C310 /* APICaller.swift */; };
 		55BF0D482987D2B300CC8FB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D472987D2B300CC8FB4 /* AppDelegate.swift */; };
 		55BF0D4A2987D2B300CC8FB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D492987D2B300CC8FB4 /* SceneDelegate.swift */; };
 		55BF0D4C2987D2B300CC8FB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D4B2987D2B300CC8FB4 /* ViewController.swift */; };
@@ -16,6 +28,9 @@
 		55BF0D5F2987D2B600CC8FB4 /* PicAnswerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D5E2987D2B600CC8FB4 /* PicAnswerTests.swift */; };
 		55BF0D692987D2B600CC8FB4 /* PicAnswerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D682987D2B600CC8FB4 /* PicAnswerUITests.swift */; };
 		55BF0D6B2987D2B600CC8FB4 /* PicAnswerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D6A2987D2B600CC8FB4 /* PicAnswerUITestsLaunchTests.swift */; };
+		7573081B9D1EBF95536E2919 /* Pods_PicAnswerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0D693682FCF7090C5354D2 /* Pods_PicAnswerTests.framework */; };
+		9A53DDC018EC4FDD289F533E /* Pods_PicAnswer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9514DA861302177CBF207F /* Pods_PicAnswer.framework */; };
+		BDD6F8084745E8A377C34D7B /* Pods_PicAnswer_PicAnswerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04078805C06CB4DCDCA4E6FD /* Pods_PicAnswer_PicAnswerUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +51,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		019085C0A936F9DF359156E1 /* Pods-PicAnswer-PicAnswerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicAnswer-PicAnswerUITests.release.xcconfig"; path = "Target Support Files/Pods-PicAnswer-PicAnswerUITests/Pods-PicAnswer-PicAnswerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		04078805C06CB4DCDCA4E6FD /* Pods_PicAnswer_PicAnswerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicAnswer_PicAnswerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12D4F22184A6B32617B1D6AE /* Pods-PicAnswer-PicAnswerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicAnswer-PicAnswerUITests.debug.xcconfig"; path = "Target Support Files/Pods-PicAnswer-PicAnswerUITests/Pods-PicAnswer-PicAnswerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		551C38932988B38A00F3D3D4 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		553CD6B92987DF1000865840 /* OCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewController.swift; sourceTree = "<group>"; };
+		555107A82989C8D600A1CA82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		555107B32989CDD800A1CA82 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		555107B72989D0D400A1CA82 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		556B915A2989D45500906F83 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		55AB8A2F298909A400E3C310 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		55BF0D442987D2B300CC8FB4 /* PicAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BF0D472987D2B300CC8FB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55BF0D492987D2B300CC8FB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +74,12 @@
 		55BF0D642987D2B600CC8FB4 /* PicAnswerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicAnswerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BF0D682987D2B600CC8FB4 /* PicAnswerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicAnswerUITests.swift; sourceTree = "<group>"; };
 		55BF0D6A2987D2B600CC8FB4 /* PicAnswerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicAnswerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5C0D693682FCF7090C5354D2 /* Pods_PicAnswerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicAnswerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3B833C30711B2346D653B4E /* Pods-PicAnswer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicAnswer.release.xcconfig"; path = "Target Support Files/Pods-PicAnswer/Pods-PicAnswer.release.xcconfig"; sourceTree = "<group>"; };
+		A55371931179A408FB5021A1 /* Pods-PicAnswer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicAnswer.debug.xcconfig"; path = "Target Support Files/Pods-PicAnswer/Pods-PicAnswer.debug.xcconfig"; sourceTree = "<group>"; };
+		CD62FDC792AACD25CD0873C4 /* Pods-PicAnswerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicAnswerTests.debug.xcconfig"; path = "Target Support Files/Pods-PicAnswerTests/Pods-PicAnswerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD9514DA861302177CBF207F /* Pods_PicAnswer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicAnswer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC382DC6CEF5F9682E126880 /* Pods-PicAnswerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicAnswerTests.release.xcconfig"; path = "Target Support Files/Pods-PicAnswerTests/Pods-PicAnswerTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +87,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55AB8A2E2988FC6F00E3C310 /* OpenAISwift in Frameworks */,
+				555107AC2989CAD300A1CA82 /* FirebaseAuth in Frameworks */,
+				555107AE2989CAD300A1CA82 /* FirebaseDatabase in Frameworks */,
+				555107B02989CAD300A1CA82 /* FirebaseFirestore in Frameworks */,
+				9A53DDC018EC4FDD289F533E /* Pods_PicAnswer.framework in Frameworks */,
+				555107B22989CAD300A1CA82 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7573081B9D1EBF95536E2919 /* Pods_PicAnswerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +108,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD6F8084745E8A377C34D7B /* Pods_PicAnswer_PicAnswerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D999832038CF2B721313AB9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A55371931179A408FB5021A1 /* Pods-PicAnswer.debug.xcconfig */,
+				A3B833C30711B2346D653B4E /* Pods-PicAnswer.release.xcconfig */,
+				12D4F22184A6B32617B1D6AE /* Pods-PicAnswer-PicAnswerUITests.debug.xcconfig */,
+				019085C0A936F9DF359156E1 /* Pods-PicAnswer-PicAnswerUITests.release.xcconfig */,
+				CD62FDC792AACD25CD0873C4 /* Pods-PicAnswerTests.debug.xcconfig */,
+				EC382DC6CEF5F9682E126880 /* Pods-PicAnswerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		55BF0D3B2987D2B300CC8FB4 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +135,8 @@
 				55BF0D5D2987D2B600CC8FB4 /* PicAnswerTests */,
 				55BF0D672987D2B600CC8FB4 /* PicAnswerUITests */,
 				55BF0D452987D2B300CC8FB4 /* Products */,
+				1D999832038CF2B721313AB9 /* Pods */,
+				A726A9F09911C74F6C5A50DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +160,13 @@
 				55BF0D502987D2B500CC8FB4 /* Assets.xcassets */,
 				55BF0D522987D2B500CC8FB4 /* LaunchScreen.storyboard */,
 				55BF0D552987D2B500CC8FB4 /* Info.plist */,
+				555107A82989C8D600A1CA82 /* GoogleService-Info.plist */,
+				553CD6B92987DF1000865840 /* OCRViewController.swift */,
+				551C38932988B38A00F3D3D4 /* PhotoViewController.swift */,
+				55AB8A2F298909A400E3C310 /* APICaller.swift */,
+				555107B32989CDD800A1CA82 /* RegisterViewController.swift */,
+				555107B72989D0D400A1CA82 /* MainViewController.swift */,
+				556B915A2989D45500906F83 /* LoginViewController.swift */,
 			);
 			path = PicAnswer;
 			sourceTree = "<group>";
@@ -127,6 +188,16 @@
 			path = PicAnswerUITests;
 			sourceTree = "<group>";
 		};
+		A726A9F09911C74F6C5A50DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD9514DA861302177CBF207F /* Pods_PicAnswer.framework */,
+				04078805C06CB4DCDCA4E6FD /* Pods_PicAnswer_PicAnswerUITests.framework */,
+				5C0D693682FCF7090C5354D2 /* Pods_PicAnswerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,15 +205,24 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55BF0D6E2987D2B600CC8FB4 /* Build configuration list for PBXNativeTarget "PicAnswer" */;
 			buildPhases = (
+				C597B5517ECDA97F8590CC04 /* [CP] Check Pods Manifest.lock */,
 				55BF0D402987D2B300CC8FB4 /* Sources */,
 				55BF0D412987D2B300CC8FB4 /* Frameworks */,
 				55BF0D422987D2B300CC8FB4 /* Resources */,
+				C4EE0C7A686B4A1A967C3EE9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = PicAnswer;
+			packageProductDependencies = (
+				55AB8A2D2988FC6F00E3C310 /* OpenAISwift */,
+				555107AB2989CAD300A1CA82 /* FirebaseAuth */,
+				555107AD2989CAD300A1CA82 /* FirebaseDatabase */,
+				555107AF2989CAD300A1CA82 /* FirebaseFirestore */,
+				555107B12989CAD300A1CA82 /* FirebaseStorage */,
+			);
 			productName = PicAnswer;
 			productReference = 55BF0D442987D2B300CC8FB4 /* PicAnswer.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +231,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55BF0D712987D2B600CC8FB4 /* Build configuration list for PBXNativeTarget "PicAnswerTests" */;
 			buildPhases = (
+				96D999F1AA272A10BE6CB82C /* [CP] Check Pods Manifest.lock */,
 				55BF0D562987D2B600CC8FB4 /* Sources */,
 				55BF0D572987D2B600CC8FB4 /* Frameworks */,
 				55BF0D582987D2B600CC8FB4 /* Resources */,
@@ -169,9 +250,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55BF0D742987D2B600CC8FB4 /* Build configuration list for PBXNativeTarget "PicAnswerUITests" */;
 			buildPhases = (
+				741F8CDC68AB9E30E7F7EAA1 /* [CP] Check Pods Manifest.lock */,
 				55BF0D602987D2B600CC8FB4 /* Sources */,
 				55BF0D612987D2B600CC8FB4 /* Frameworks */,
 				55BF0D622987D2B600CC8FB4 /* Resources */,
+				74A448C480420A17932F09C3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,6 +298,10 @@
 				Base,
 			);
 			mainGroup = 55BF0D3B2987D2B300CC8FB4;
+			packageReferences = (
+				55AB8A2C2988FC6F00E3C310 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				555107AA2989CAD300A1CA82 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 55BF0D452987D2B300CC8FB4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55BF0D542987D2B500CC8FB4 /* LaunchScreen.storyboard in Resources */,
+				555107A92989C8D600A1CA82 /* GoogleService-Info.plist in Resources */,
 				55BF0D512987D2B500CC8FB4 /* Assets.xcassets in Resources */,
 				55BF0D4F2987D2B300CC8FB4 /* Main.storyboard in Resources */,
 			);
@@ -253,14 +341,123 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		741F8CDC68AB9E30E7F7EAA1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicAnswer-PicAnswerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74A448C480420A17932F09C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PicAnswer-PicAnswerUITests/Pods-PicAnswer-PicAnswerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PicAnswer-PicAnswerUITests/Pods-PicAnswer-PicAnswerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PicAnswer-PicAnswerUITests/Pods-PicAnswer-PicAnswerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96D999F1AA272A10BE6CB82C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicAnswerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4EE0C7A686B4A1A967C3EE9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PicAnswer/Pods-PicAnswer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PicAnswer/Pods-PicAnswer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PicAnswer/Pods-PicAnswer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C597B5517ECDA97F8590CC04 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicAnswer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		55BF0D402987D2B300CC8FB4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556B915B2989D45500906F83 /* LoginViewController.swift in Sources */,
 				55BF0D4C2987D2B300CC8FB4 /* ViewController.swift in Sources */,
 				55BF0D482987D2B300CC8FB4 /* AppDelegate.swift in Sources */,
+				555107B42989CDD800A1CA82 /* RegisterViewController.swift in Sources */,
+				55AB8A30298909A400E3C310 /* APICaller.swift in Sources */,
+				553CD6BA2987DF1000865840 /* OCRViewController.swift in Sources */,
 				55BF0D4A2987D2B300CC8FB4 /* SceneDelegate.swift in Sources */,
+				551C38942988B38A00F3D3D4 /* PhotoViewController.swift in Sources */,
+				555107B82989D0D400A1CA82 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,18 +629,22 @@
 		};
 		55BF0D6F2987D2B600CC8FB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A55371931179A408FB5021A1 /* Pods-PicAnswer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AWMFZKD68X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicAnswer/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,18 +660,22 @@
 		};
 		55BF0D702987D2B600CC8FB4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3B833C30711B2346D653B4E /* Pods-PicAnswer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AWMFZKD68X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicAnswer/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,6 +691,7 @@
 		};
 		55BF0D722987D2B600CC8FB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD62FDC792AACD25CD0873C4 /* Pods-PicAnswerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -505,6 +711,7 @@
 		};
 		55BF0D732987D2B600CC8FB4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC382DC6CEF5F9682E126880 /* Pods-PicAnswerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -524,6 +731,7 @@
 		};
 		55BF0D752987D2B600CC8FB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12D4F22184A6B32617B1D6AE /* Pods-PicAnswer-PicAnswerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -541,6 +749,7 @@
 		};
 		55BF0D762987D2B600CC8FB4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 019085C0A936F9DF359156E1 /* Pods-PicAnswer-PicAnswerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -596,6 +805,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		555107AA2989CAD300A1CA82 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		55AB8A2C2988FC6F00E3C310 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		555107AB2989CAD300A1CA82 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 555107AA2989CAD300A1CA82 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		555107AD2989CAD300A1CA82 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 555107AA2989CAD300A1CA82 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		555107AF2989CAD300A1CA82 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 555107AA2989CAD300A1CA82 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		555107B12989CAD300A1CA82 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 555107AA2989CAD300A1CA82 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		55AB8A2D2988FC6F00E3C310 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55AB8A2C2988FC6F00E3C310 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 55BF0D3C2987D2B300CC8FB4 /* Project object */;
 }
