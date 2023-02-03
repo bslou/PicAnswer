@@ -6,10 +6,14 @@
 //
 import UIKit
 import Vision
+import FirebaseFirestore
+import Firebase
 
 class OCRViewController: UIViewController {
 
-  var selectedImage: UIImage?
+    var db = Firestore.firestore()
+    var selectedImage: UIImage?
+
 
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var txt1: UITextView!
@@ -18,6 +22,8 @@ class OCRViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Image Results"
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.addDoneButtonOnKeyboard()
+
       }
     override func viewDidAppear(_ animated: Bool) {
         performOCR()
@@ -29,8 +35,8 @@ class OCRViewController: UIViewController {
             // Back button was pressed
             let story = UIStoryboard(name: "Main", bundle:nil)
             let vc = story.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
-            UIApplication.shared.windows.first?.rootViewController = vc
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
         //}
     }
 
@@ -74,13 +80,83 @@ class OCRViewController: UIViewController {
     try! handler.perform([request])
   }
     @IBAction func update(_ sender: Any) {
-        APICaller.shared.getResponse(input: self.txt1.text) { [weak self] result in
-            switch result {
-            case .success(let output):
-                self?.txt2.text = output
-            case .failure(let error):
-                self?.txt2.text = error.localizedDescription
+
+        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument { document, err in
+            if let document = document, document.exists {
+                let field = document.data()?["premium"]
+                let date1 = document.data()?["premiumDate"]
+                let date2 = Date()
+                // use the field as desired
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                
+                if ((field as! String != "no") && date1 as! String != ""){
+                    let date = dateFormatter.date(from:date1 as! String)!
+                    if (((date2.timeIntervalSince(date) / (60 * 60 * 24)) <= 30)){
+                        self.txt2.text = "ChatGPT response loading..."
+                        APICaller.shared.getResponse(input: self.txt1.text) { [weak self] result in
+                            switch result {
+                            case .success(let output):
+                                DispatchQueue.main.async {
+                                    self?.txt2.text = output
+                                }
+                            case .failure(let error):
+                                DispatchQueue.main.async {
+                                    self?.txt2.text = error.localizedDescription
+                                }
+                            }
+                        }
+                    }
+                        
+                    }else{
+                        if let o = document.data()?["pics"] as? Int64{
+                            print("Num = " + String(o))
+                            if (o >= 10){
+                                self.showToast(message: "Unfortunately you used up your AI call limit this month.", font: UIFont.systemFont(ofSize: 16.0))
+                            }else{
+                                self.txt2.text = "ChatGPT response loading..."
+                                APICaller.shared.getResponse(input: self.txt1.text) { [weak self] result in
+                                    switch result {
+                                    case .success(let output):
+                                        DispatchQueue.main.async {
+                                            self?.txt2.text = output
+                                        }
+                                    case .failure(let error):
+                                        DispatchQueue.main.async {
+                                            self?.txt2.text = error.localizedDescription
+                                        }
+                                    }
+                                }
+                                self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)])
+                            }
+                        }
+                    }
+                    
+                }
             }
-        }
+    }
+    
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
+        //doneToolbar.barStyle = UIBarStyle.blackTranslucent
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(OCRViewController.doneButtonAction))
+
+        let items = NSMutableArray()
+        items.add(flexSpace)
+        items.add(done)
+
+        doneToolbar.items = items as? [UIBarButtonItem]
+        doneToolbar.sizeToFit()
+
+        txt1.inputAccessoryView = doneToolbar
+
+    }
+    @objc func doneButtonAction()
+    {
+        txt1.resignFirstResponder()
     }
 }

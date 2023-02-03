@@ -16,9 +16,15 @@
 		555107B22989CAD300A1CA82 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 555107B12989CAD300A1CA82 /* FirebaseStorage */; };
 		555107B42989CDD800A1CA82 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555107B32989CDD800A1CA82 /* RegisterViewController.swift */; };
 		555107B82989D0D400A1CA82 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555107B72989D0D400A1CA82 /* MainViewController.swift */; };
+		555510A3298BA9AF0018D21F /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 555510A2298BA9AF0018D21F /* ReceiptParser */; };
+		555510A5298BA9AF0018D21F /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 555510A4298BA9AF0018D21F /* RevenueCat */; };
+		555510A7298BA9DB0018D21F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555510A6298BA9DB0018D21F /* StoreKit.framework */; };
+		555510AA298BC6610018D21F /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555510A9298BC6610018D21F /* PurchaseService.swift */; };
+		555510AD298C763A0018D21F /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 555510AC298C763A0018D21F /* GoogleMobileAds */; };
 		556B915B2989D45500906F83 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B915A2989D45500906F83 /* LoginViewController.swift */; };
 		55AB8A2E2988FC6F00E3C310 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 55AB8A2D2988FC6F00E3C310 /* OpenAISwift */; };
 		55AB8A30298909A400E3C310 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB8A2F298909A400E3C310 /* APICaller.swift */; };
+		55B7C663298A7E9C00D04FFB /* KKRateApp in Frameworks */ = {isa = PBXBuildFile; productRef = 55B7C662298A7E9C00D04FFB /* KKRateApp */; };
 		55BF0D482987D2B300CC8FB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D472987D2B300CC8FB4 /* AppDelegate.swift */; };
 		55BF0D4A2987D2B300CC8FB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D492987D2B300CC8FB4 /* SceneDelegate.swift */; };
 		55BF0D4C2987D2B300CC8FB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D4B2987D2B300CC8FB4 /* ViewController.swift */; };
@@ -28,6 +34,7 @@
 		55BF0D5F2987D2B600CC8FB4 /* PicAnswerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D5E2987D2B600CC8FB4 /* PicAnswerTests.swift */; };
 		55BF0D692987D2B600CC8FB4 /* PicAnswerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D682987D2B600CC8FB4 /* PicAnswerUITests.swift */; };
 		55BF0D6B2987D2B600CC8FB4 /* PicAnswerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF0D6A2987D2B600CC8FB4 /* PicAnswerUITestsLaunchTests.swift */; };
+		55C7A836298A63E6009FC880 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C7A835298A63E6009FC880 /* BuyViewController.swift */; };
 		7573081B9D1EBF95536E2919 /* Pods_PicAnswerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0D693682FCF7090C5354D2 /* Pods_PicAnswerTests.framework */; };
 		9A53DDC018EC4FDD289F533E /* Pods_PicAnswer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9514DA861302177CBF207F /* Pods_PicAnswer.framework */; };
 		BDD6F8084745E8A377C34D7B /* Pods_PicAnswer_PicAnswerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04078805C06CB4DCDCA4E6FD /* Pods_PicAnswer_PicAnswerUITests.framework */; };
@@ -59,6 +66,8 @@
 		555107A82989C8D600A1CA82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		555107B32989CDD800A1CA82 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		555107B72989D0D400A1CA82 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		555510A6298BA9DB0018D21F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		555510A9298BC6610018D21F /* PurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
 		556B915A2989D45500906F83 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		55AB8A2F298909A400E3C310 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		55BF0D442987D2B300CC8FB4 /* PicAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +83,7 @@
 		55BF0D642987D2B600CC8FB4 /* PicAnswerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicAnswerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BF0D682987D2B600CC8FB4 /* PicAnswerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicAnswerUITests.swift; sourceTree = "<group>"; };
 		55BF0D6A2987D2B600CC8FB4 /* PicAnswerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicAnswerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		55C7A835298A63E6009FC880 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		5C0D693682FCF7090C5354D2 /* Pods_PicAnswerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicAnswerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B833C30711B2346D653B4E /* Pods-PicAnswer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicAnswer.release.xcconfig"; path = "Target Support Files/Pods-PicAnswer/Pods-PicAnswer.release.xcconfig"; sourceTree = "<group>"; };
 		A55371931179A408FB5021A1 /* Pods-PicAnswer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicAnswer.debug.xcconfig"; path = "Target Support Files/Pods-PicAnswer/Pods-PicAnswer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,11 +97,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B7C663298A7E9C00D04FFB /* KKRateApp in Frameworks */,
 				55AB8A2E2988FC6F00E3C310 /* OpenAISwift in Frameworks */,
 				555107AC2989CAD300A1CA82 /* FirebaseAuth in Frameworks */,
 				555107AE2989CAD300A1CA82 /* FirebaseDatabase in Frameworks */,
 				555107B02989CAD300A1CA82 /* FirebaseFirestore in Frameworks */,
+				555510AD298C763A0018D21F /* GoogleMobileAds in Frameworks */,
+				555510A5298BA9AF0018D21F /* RevenueCat in Frameworks */,
 				9A53DDC018EC4FDD289F533E /* Pods_PicAnswer.framework in Frameworks */,
+				555510A7298BA9DB0018D21F /* StoreKit.framework in Frameworks */,
+				555510A3298BA9AF0018D21F /* ReceiptParser in Frameworks */,
 				555107B22989CAD300A1CA82 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +182,8 @@
 				555107B32989CDD800A1CA82 /* RegisterViewController.swift */,
 				555107B72989D0D400A1CA82 /* MainViewController.swift */,
 				556B915A2989D45500906F83 /* LoginViewController.swift */,
+				55C7A835298A63E6009FC880 /* BuyViewController.swift */,
+				555510A9298BC6610018D21F /* PurchaseService.swift */,
 			);
 			path = PicAnswer;
 			sourceTree = "<group>";
@@ -191,6 +208,7 @@
 		A726A9F09911C74F6C5A50DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				555510A6298BA9DB0018D21F /* StoreKit.framework */,
 				CD9514DA861302177CBF207F /* Pods_PicAnswer.framework */,
 				04078805C06CB4DCDCA4E6FD /* Pods_PicAnswer_PicAnswerUITests.framework */,
 				5C0D693682FCF7090C5354D2 /* Pods_PicAnswerTests.framework */,
@@ -222,6 +240,10 @@
 				555107AD2989CAD300A1CA82 /* FirebaseDatabase */,
 				555107AF2989CAD300A1CA82 /* FirebaseFirestore */,
 				555107B12989CAD300A1CA82 /* FirebaseStorage */,
+				55B7C662298A7E9C00D04FFB /* KKRateApp */,
+				555510A2298BA9AF0018D21F /* ReceiptParser */,
+				555510A4298BA9AF0018D21F /* RevenueCat */,
+				555510AC298C763A0018D21F /* GoogleMobileAds */,
 			);
 			productName = PicAnswer;
 			productReference = 55BF0D442987D2B300CC8FB4 /* PicAnswer.app */;
@@ -301,6 +323,9 @@
 			packageReferences = (
 				55AB8A2C2988FC6F00E3C310 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 				555107AA2989CAD300A1CA82 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				55B7C661298A7E9C00D04FFB /* XCRemoteSwiftPackageReference "KKRateApp" */,
+				555510A1298BA9AF0018D21F /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				555510AB298C76390018D21F /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 55BF0D452987D2B300CC8FB4 /* Products */;
 			projectDirPath = "";
@@ -450,8 +475,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				556B915B2989D45500906F83 /* LoginViewController.swift in Sources */,
+				55C7A836298A63E6009FC880 /* BuyViewController.swift in Sources */,
 				55BF0D4C2987D2B300CC8FB4 /* ViewController.swift in Sources */,
 				55BF0D482987D2B300CC8FB4 /* AppDelegate.swift in Sources */,
+				555510AA298BC6610018D21F /* PurchaseService.swift in Sources */,
 				555107B42989CDD800A1CA82 /* RegisterViewController.swift in Sources */,
 				55AB8A30298909A400E3C310 /* APICaller.swift in Sources */,
 				553CD6BA2987DF1000865840 /* OCRViewController.swift in Sources */,
@@ -634,27 +661,32 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = AWMFZKD68X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicAnswer/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.picAnswer.PicAnswer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -665,27 +697,32 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = AWMFZKD68X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicAnswer/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.picAnswer.PicAnswer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -815,12 +852,36 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		555510A1298BA9AF0018D21F /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		555510AB298C76390018D21F /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		55AB8A2C2988FC6F00E3C310 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
+			};
+		};
+		55B7C661298A7E9C00D04FFB /* XCRemoteSwiftPackageReference "KKRateApp" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kaiusee/KKRateApp.git";
+			requirement = {
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -846,10 +907,30 @@
 			package = 555107AA2989CAD300A1CA82 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
+		555510A2298BA9AF0018D21F /* ReceiptParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 555510A1298BA9AF0018D21F /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = ReceiptParser;
+		};
+		555510A4298BA9AF0018D21F /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 555510A1298BA9AF0018D21F /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		555510AC298C763A0018D21F /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 555510AB298C76390018D21F /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
 		55AB8A2D2988FC6F00E3C310 /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 55AB8A2C2988FC6F00E3C310 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
 			productName = OpenAISwift;
+		};
+		55B7C662298A7E9C00D04FFB /* KKRateApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55B7C661298A7E9C00D04FFB /* XCRemoteSwiftPackageReference "KKRateApp" */;
+			productName = KKRateApp;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

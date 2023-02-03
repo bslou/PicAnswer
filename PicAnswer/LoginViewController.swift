@@ -55,11 +55,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         let field = document.data()?["premium"] as? String
                         if (field == "no"){
                             //redirect to iap screen
+                            let story = UIStoryboard(name: "Main", bundle:nil)
+                            let vc = story.instantiateViewController(withIdentifier: "BuyViewController") as! BuyViewController
+                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
                         }else{
                             let story = UIStoryboard(name: "Main", bundle:nil)
                             let vc = story.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                            UIApplication.shared.windows.first?.rootViewController = vc
-                            UIApplication.shared.windows.first?.makeKeyAndVisible()
+                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
                         }
                     }else{
                         self?.showToast(message: "Error logging in", font: .systemFont(ofSize: 14.0))
@@ -74,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func Reg(_ sender: Any) {
         let story = UIStoryboard(name: "Main", bundle:nil)
         let vc = story.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-        UIApplication.shared.windows.first?.rootViewController = vc
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
     }
 }

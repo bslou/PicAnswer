@@ -53,7 +53,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             } else {
                 let user = Auth.auth().currentUser
                 if let user = user {
-                    let userData = ["email": email!, "premium": "no", "premiumDate": "", "pics": String(0), "picsdate": Date(), "numad": String(1)]
+                    let userData = ["email": email!, "premium": "no", "premiumDate": "", "pics": (0), "picsdate": Date(), "numad": (1)]
                     db.collection("users").document(user.uid).setData(userData as [String : Any]) { (error) in
                         if let error = error {
                             self.showToast(message: error.localizedDescription, font: .systemFont(ofSize: 14.0))
@@ -61,9 +61,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                             UserDefaults.standard.set(user.uid, forKey: "id")
                             if UserDefaults.standard.object(forKey: "id") != nil{
                                 let story = UIStoryboard(name: "Main", bundle:nil)
-                                let vc = story.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                                UIApplication.shared.windows.first?.rootViewController = vc
-                                UIApplication.shared.windows.first?.makeKeyAndVisible()
+                                let vc = story.instantiateViewController(withIdentifier: "BuyViewController") as! BuyViewController
+                                (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+                                (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
                             }
                         }
                     }
@@ -78,7 +78,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBAction func Login(_ sender: Any) {
         let story = UIStoryboard(name: "Main", bundle:nil)
         let vc = story.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        UIApplication.shared.windows.first?.rootViewController = vc
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
     }
 }
