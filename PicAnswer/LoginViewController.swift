@@ -81,4 +81,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
         (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
     }
+    @IBAction func sampleVid(_ sender: Any) {
+        guard let url = URL(string: "https://picanswerapp.vercel.app/") else { return }
+        UIApplication.shared.open(url)
+    }
 }
