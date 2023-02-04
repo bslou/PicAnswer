@@ -225,7 +225,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="The OpenAI response is currently loading..." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlY-oj-TSf">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="AI response loading..." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlY-oj-TSf">
                                 <rect key="frame" x="20" y="353" width="374" height="509"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -454,7 +454,7 @@
                                                             <constraint firstAttribute="width" constant="110" id="Ydj-JW-VuR"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Unlimited ChatGPT Images" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lx-d6-te6">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Unlimited AI calls for images" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lx-d6-te6">
                                                         <rect key="frame" x="117" y="0.0" width="154" height="110"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="textColor" systemColor="labelColor"/>
@@ -610,7 +610,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="business-3d-young-man-in-formalwear-sitting-on-the-floor-and-taking-photo" translatesAutoresizingMaskIntoConstraints="NO" id="JrI-6d-XRd">
                                 <rect key="frame" x="63" y="249" width="286" height="397"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Works for text within images but not graphs or artwork yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ju-Fb-Ozw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solves text within images but not graphs or artwork yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ju-Fb-Ozw">
                                 <rect key="frame" x="80" y="109" width="252" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="qRv-sE-3yl"/>

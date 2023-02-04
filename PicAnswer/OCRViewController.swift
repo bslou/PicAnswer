@@ -94,7 +94,7 @@ class OCRViewController: UIViewController {
                 if ((field as! String != "no") && date1 as! String != ""){
                     let date = dateFormatter.date(from:date1 as! String)!
                     if (((date2.timeIntervalSince(date) / (60 * 60 * 24)) <= 30)){
-                        self.txt2.text = "ChatGPT response loading..."
+                        self.txt2.text = "AI response loading..."
                         APICaller.shared.getResponse(input: self.txt1.text) { [weak self] result in
                             switch result {
                             case .success(let output):
@@ -115,7 +115,7 @@ class OCRViewController: UIViewController {
                             if (o >= 10){
                                 self.showToast(message: "Unfortunately you used up your AI call limit this month.", font: UIFont.systemFont(ofSize: 16.0))
                             }else{
-                                self.txt2.text = "ChatGPT response loading..."
+                                self.txt2.text = "AI response loading..."
                                 APICaller.shared.getResponse(input: self.txt1.text) { [weak self] result in
                                     switch result {
                                     case .success(let output):
