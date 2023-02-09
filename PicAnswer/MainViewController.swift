@@ -12,7 +12,7 @@ import Firebase
 import FirebaseFirestore
 import QCropper
 import KKRateApp
-import RevenueCat
+//import RevenueCat
 import GoogleMobileAds
 //import Alamofire
 
@@ -22,9 +22,16 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     struct Constant{
         static let homeAdId = "ca-app-pub-7343484395424686/2838569682"
     }
+    private let banner: GADBannerView = {
+        let banner = GADBannerView()
+        banner.adUnitID = "ca-app-pub-7343484395424686/2563285245"
+        banner.load(GADRequest())
+        banner.backgroundColor = .secondarySystemBackground
+        return banner
+    }()
     private var interstitialAd: GADInterstitialAd?
 
-    @IBOutlet weak var topbut: UIButton!
+    //@IBOutlet weak var topbut: UIButton!
     
     @IBOutlet weak var but2: UIButton!
     @IBOutlet weak var but1: UIButton!
@@ -34,6 +41,8 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         but1.titleLabel?.font=UIFont.boldSystemFont(ofSize: 18)
         but2.titleLabel?.font=UIFont.boldSystemFont(ofSize: 18)
         
+        banner.rootViewController = self
+        view.addSubview(banner)
         let request = GADRequest()
         GADInterstitialAd.load(withAdUnitID: Constant.homeAdId, request: request, completionHandler: { [self] ad, error in
             if let err = error{
@@ -44,25 +53,25 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         })
         
 
-        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument {(document, error) in
-            if let document = document, document.exists {
-                let field = document.data()?["premium"] as? String
-                // use the field as desired
-                if (field == "no"){
-                    self.topbut.backgroundColor = UIColor.systemBlue
-                    self.topbut.setTitleColor(.white, for: .normal)
-                    self.topbut.layer.cornerRadius = 3
-                    self.topbut.setTitle( "Get Premium" , for: .normal )
-                }else{
-                    //self.topbut.isEnabled = false
-                    self.topbut.setTitleColor(.black, for: .normal)
-                    self.topbut.setTitle( "Premium Version" , for: .normal )
-                }
-              } else {
-                // handle the error
-                  print("error")
-              }
-            }
+//        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument {(document, error) in
+//            if let document = document, document.exists {
+//                let field = document.data()?["premium"] as? String
+//                // use the field as desired
+//                if (field == "no"){
+//                    self.topbut.backgroundColor = UIColor.systemBlue
+//                    self.topbut.setTitleColor(.white, for: .normal)
+//                    self.topbut.layer.cornerRadius = 3
+//                    self.topbut.setTitle( "Get Premium" , for: .normal )
+//                }else{
+//                    //self.topbut.isEnabled = false
+//                    self.topbut.setTitleColor(.black, for: .normal)
+//                    self.topbut.setTitle( "Premium Version" , for: .normal )
+//                }
+//              } else {
+//                // handle the error
+//                  print("error")
+//              }
+//            }
     
 
 
@@ -71,233 +80,272 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidAppear(_ animated: Bool) {
         KKRateApp.rateAppAfter(appLaunches: 5)
         
-        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument {(document, error) in
-            if let document = document, document.exists {
-                let date1 = document.data()?["picsdate"]
-                let date2 = Date()
-                // use the field as desired
-                if ((date2.timeIntervalSince( (date1 as! Timestamp).dateValue()) / (60 * 60 * 24)) > 30){
-                    self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : 0])
-                    self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["picsdate" : Date()])
-                }
-            }
-        }
+//        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument {(document, error) in
+//            if let document = document, document.exists {
+//                let date1 = document.data()?["picsdate"]
+//                let date2 = Date()
+//                // use the field as desired
+//                if ((date2.timeIntervalSince( (date1 as! Timestamp).dateValue()) / (60 * 60 * 24)) > 30){
+//                    self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : 0])
+//                    self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["picsdate" : Date()])
+//                }
+//            }
+//        }
         
 //        self.navigationController?.pushViewController(CameraViewController(), animated: false)
         
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        banner.frame = CGRect(x: 0, y: view.frame.size.height - 50, width: view.frame.size.width, height: 50).integral
+    }
     @IBAction func onPress(_ sender: Any) {
-        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument {(document, error) in
-            if let document = document, document.exists {
-                let fieldo = document.data()?["premium"]
-                let date1o = document.data()?["premiumDate"]
-                let date2o = Date()
-                // use the field as desired
-                let dateFormatter = DateFormatter()
-                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                
-                if ((fieldo as! String != "no") && date1o as! String != ""){
-                    let date = dateFormatter.date(from:date1o as! String)!
-                    if (((date2o.timeIntervalSince(date) / (60 * 60 * 24)) <= 30)){
-                        let imagePickerController = UIImagePickerController()
-                        imagePickerController.delegate = self
-                        imagePickerController.sourceType = .camera
-                        imagePickerController.allowsEditing = false
-                        self.present(imagePickerController, animated: true)
-                        return
-                    }else{
-                        let field = document.data()?["pics"]
-                        let date1 = document.data()?["picsdate"]
-                        let date2 = Date()
-                        // use the field as desired
-                        if (field as! Int >= 10){
-                            self.showToast(message: "Maximized AI calls for the month.", font: UIFont.systemFont(ofSize: 16.0))
-                        }else{
-                            let imagePickerController = UIImagePickerController()
-                            imagePickerController.delegate = self
-                            imagePickerController.sourceType = .camera
-                            imagePickerController.allowsEditing = false
-                            self.present(imagePickerController, animated: true)
-                        }
-                    }
-                }else{
-                    let field = document.data()?["pics"]
-                    let date1 = document.data()?["picsdate"]
-                    let date2 = Date()
-                    // use the field as desired
-                    if (field as! Int >= 10){
-                        self.showToast(message: "Maximized AI calls for the month.", font: UIFont.systemFont(ofSize: 16.0))
-                    }else{
-                        let imagePickerController = UIImagePickerController()
-                        imagePickerController.delegate = self
-                        imagePickerController.sourceType = .camera
-                        imagePickerController.allowsEditing = false
-                        self.present(imagePickerController, animated: true)
-                    }
-                }
-              } else {
-                // handle the error
-                  print("error")
-              }
-            }
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .camera
+        imagePickerController.allowsEditing = false
+        self.present(imagePickerController, animated: true)
+//        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument {(document, error) in
+//            if let document = document, document.exists {
+//                let fieldo = document.data()?["premium"]
+//                let date1o = document.data()?["premiumDate"]
+//                let date2o = Date()
+//                // use the field as desired
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//
+//                if ((fieldo as! String != "no") && date1o as! String != ""){
+//                    let date = dateFormatter.date(from:date1o as! String)!
+//                    if (((date2o.timeIntervalSince(date) / (60 * 60 * 24)) <= 30)){
+//                        let imagePickerController = UIImagePickerController()
+//                        imagePickerController.delegate = self
+//                        imagePickerController.sourceType = .camera
+//                        imagePickerController.allowsEditing = false
+//                        self.present(imagePickerController, animated: true)
+//                        return
+//                    }else{
+//                        let field = document.data()?["pics"]
+//                        let date1 = document.data()?["picsdate"]
+//                        let date2 = Date()
+//                        // use the field as desired
+//                        if (field as! Int >= 10){
+//                            self.showToast(message: "Maximized AI calls for the month.", font: UIFont.systemFont(ofSize: 16.0))
+//                        }else{
+//                            let imagePickerController = UIImagePickerController()
+//                            imagePickerController.delegate = self
+//                            imagePickerController.sourceType = .camera
+//                            imagePickerController.allowsEditing = false
+//                            self.present(imagePickerController, animated: true)
+//                        }
+//                    }
+//                }else{
+//                    let field = document.data()?["pics"]
+//                    let date1 = document.data()?["picsdate"]
+//                    let date2 = Date()
+//                    // use the field as desired
+//                    if (field as! Int >= 10){
+//                        self.showToast(message: "Maximized AI calls for the month.", font: UIFont.systemFont(ofSize: 16.0))
+//                    }else{
+//                        let imagePickerController = UIImagePickerController()
+//                        imagePickerController.delegate = self
+//                        imagePickerController.sourceType = .camera
+//                        imagePickerController.allowsEditing = false
+//                        self.present(imagePickerController, animated: true)
+//                    }
+//                }
+//              } else {
+//                // handle the error
+//                  print("error")
+//              }
+//            }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
-        
-        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument { document, err in
-            if let document = document, document.exists {
-                let field = document.data()?["premium"]
-                let date1 = document.data()?["premiumDate"]
-                let date2 = Date()
-                // use the field as desired
-                let dateFormatter = DateFormatter()
-                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                
-                if ((field as! String != "no") && date1 as! String != ""){
-                    let date = dateFormatter.date(from:date1 as! String)!
-                    if (((date2.timeIntervalSince(date) / (60 * 60 * 24)) <= 30)){
-                        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                            // Use the picked image
-                            
-                            print("one...")
-                            let cropper = CropperViewController(originalImage: pickedImage)
-                            print("two...")
-                            cropper.delegate = self
-                            print("three...")
-                            picker.dismiss(animated: true) {
-                                self.present(cropper, animated: true, completion: nil)
-                            }
-                            print("four...")
-                        }
-                        return
-                    }else{
-                        if ((document.data()?["numad"] as! Int64) + 1 >= 3){
-                            //show intersitial ad
-                            if self.interstitialAd != nil{
-                                self.interstitialAd?.present(fromRootViewController: self)
-                            }else{
-                                print("Ad was not ready")
-                            }
-                            self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["numad" : 0])
-                            if let o = (document.data()?["pics"] as? Int64){
-                                print("Num = " + String(o))
-                                self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)]) { (error) in
-                                    if let error = error {
-                                        print("Error updating document: \(error)")
-                                    } else {
-                                        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                                            // Use the picked image
-                                            
-                                            print("one...")
-                                            let cropper = CropperViewController(originalImage: pickedImage)
-                                            print("two...")
-                                            cropper.delegate = self
-                                            print("three...")
-                                            picker.dismiss(animated: true) {
-                                                self.present(cropper, animated: true, completion: nil)
-                                            }
-                                            print("four...")
-                                        }
-                                    }
-                                }
-                                
-                            }
-                        }else{
-                            if let n = document.data()?["numad"] as? Int64{
-                                self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["numad" : (n+1)])
-                                if let o = document.data()?["pics"] as? Int64{
-                                    print("Num = " + String(o))
-                                    self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)]) { (error) in
-                                        if let error = error {
-                                            print("Error updating document: \(error)")
-                                        } else {
-                                            
-                                            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                                                // Use the picked image
-                                                
-                                                print("one...")
-                                                let cropper = CropperViewController(originalImage: pickedImage)
-                                                print("two...")
-                                                cropper.delegate = self
-                                                print("three...")
-                                                picker.dismiss(animated: true) {
-                                                    self.present(cropper, animated: true, completion: nil)
-                                                }
-                                                print("four...")
-                                            }
-                                        }
-                                    }
-                                    
-                                }
-                            }
-                        }
-                    }
-                }else{
-                    if ((document.data()?["numad"] as! Int64) + 1 >= 3){
-                        //show intersitial ad
-                        if self.interstitialAd != nil{
-                            self.interstitialAd?.present(fromRootViewController: self)
-                        }else{
-                            print("Ad was not ready")
-                        }
-                        self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["numad" : 0])
-                        if let o = (document.data()?["pics"] as? Int64){
-                            print("Num = " + String(o))
-                            self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)]) { (error) in
-                                if let error = error {
-                                    print("Error updating document: \(error)")
-                                } else {
-                                    if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                                        // Use the picked image
-                                        
-                                        print("one...")
-                                        let cropper = CropperViewController(originalImage: pickedImage)
-                                        print("two...")
-                                        cropper.delegate = self
-                                        print("three...")
-                                        picker.dismiss(animated: true) {
-                                            self.present(cropper, animated: true, completion: nil)
-                                        }
-                                        print("four...")
-                                    }
-                                }
-                            }
-                            
-                        }
-                    }else{
-                        if let n = document.data()?["numad"] as? Int64{
-                            self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["numad" : (n+1)])
-                            if let o = document.data()?["pics"] as? Int64{
-                                print("Num = " + String(o))
-                                self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)]) { (error) in
-                                    if let error = error {
-                                        print("Error updating document: \(error)")
-                                    } else {
-                                        
-                                        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                                            // Use the picked image
-                                            
-                                            print("one...")
-                                            let cropper = CropperViewController(originalImage: pickedImage)
-                                            print("two...")
-                                            cropper.delegate = self
-                                            print("three...")
-                                            picker.dismiss(animated: true) {
-                                                self.present(cropper, animated: true, completion: nil)
-                                            }
-                                            print("four...")
-                                        }
-                                    }
-                                }
-                                
-                            }
-                        }
-                    }
+        if (UserDefaults.standard.object(forKey:"ads") as! Int >= 2){
+            if self.interstitialAd != nil{
+                self.interstitialAd?.present(fromRootViewController: self)
+                UserDefaults.standard.set(0, forKey: "ads")
+            }else{
+                print("Ad was not ready")
+            }
+            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                let cropper = CropperViewController(originalImage: pickedImage)
+                cropper.delegate = self
+                picker.dismiss(animated: true) {
+                    self.present(cropper, animated: true, completion: nil)
                 }
+            }else{
+                self.showToast(message: "Error with loading picker...", font: UIFont.systemFont(ofSize: 16.0))
+            }
+        }else{
+            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                UserDefaults.standard.set(UserDefaults.standard.object(forKey:"ads") as! Int + 1, forKey: "ads")
+                let cropper = CropperViewController(originalImage: pickedImage)
+                print("two...")
+                cropper.delegate = self
+                print("three...")
+                picker.dismiss(animated: true) {
+                    self.present(cropper, animated: true, completion: nil)
+                }
+            }else{
+                self.showToast(message: "Error with loading picker...", font: UIFont.systemFont(ofSize: 16.0))
             }
         }
+        
+//        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument { document, err in
+//            if let document = document, document.exists {
+//                let field = document.data()?["premium"]
+//                let date1 = document.data()?["premiumDate"]
+//                let date2 = Date()
+//                // use the field as desired
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//
+//                if ((field as! String != "no") && date1 as! String != ""){
+//                    let date = dateFormatter.date(from:date1 as! String)!
+//                    if (((date2.timeIntervalSince(date) / (60 * 60 * 24)) <= 30)){
+//                        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//                            // Use the picked image
+//
+//                            print("one...")
+//                            let cropper = CropperViewController(originalImage: pickedImage)
+//                            print("two...")
+//                            cropper.delegate = self
+//                            print("three...")
+//                            picker.dismiss(animated: true) {
+//                                self.present(cropper, animated: true, completion: nil)
+//                            }
+//                            print("four...")
+//                        }
+//                        return
+//                    }else{
+//                        if ((document.data()?["numad"] as! Int64) + 1 >= 3){
+//                            //show intersitial ad
+//                            if self.interstitialAd != nil{
+//                                self.interstitialAd?.present(fromRootViewController: self)
+//                            }else{
+//                                print("Ad was not ready")
+//                            }
+//                            self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["numad" : 0])
+//                            if let o = (document.data()?["pics"] as? Int64){
+//                                print("Num = " + String(o))
+//                                self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)]) { (error) in
+//                                    if let error = error {
+//                                        print("Error updating document: \(error)")
+//                                    } else {
+//                                        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//                                            // Use the picked image
+//
+//                                            print("one...")
+//                                            let cropper = CropperViewController(originalImage: pickedImage)
+//                                            print("two...")
+//                                            cropper.delegate = self
+//                                            print("three...")
+//                                            picker.dismiss(animated: true) {
+//                                                self.present(cropper, animated: true, completion: nil)
+//                                            }
+//                                            print("four...")
+//                                        }
+//                                    }
+//                                }
+//
+//                            }
+//                        }else{
+//                            if let n = document.data()?["numad"] as? Int64{
+//                                self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["numad" : (n+1)])
+//                                if let o = document.data()?["pics"] as? Int64{
+//                                    print("Num = " + String(o))
+//                                    self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)]) { (error) in
+//                                        if let error = error {
+//                                            print("Error updating document: \(error)")
+//                                        } else {
+//
+//                                            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//                                                // Use the picked image
+//
+//                                                print("one...")
+//                                                let cropper = CropperViewController(originalImage: pickedImage)
+//                                                print("two...")
+//                                                cropper.delegate = self
+//                                                print("three...")
+//                                                picker.dismiss(animated: true) {
+//                                                    self.present(cropper, animated: true, completion: nil)
+//                                                }
+//                                                print("four...")
+//                                            }
+//                                        }
+//                                    }
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//                }else{
+//                    if ((document.data()?["numad"] as! Int64) + 1 >= 3){
+//                        //show intersitial ad
+//                        if self.interstitialAd != nil{
+//                            self.interstitialAd?.present(fromRootViewController: self)
+//                        }else{
+//                            print("Ad was not ready")
+//                        }
+//                        self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["numad" : 0])
+//                        if let o = (document.data()?["pics"] as? Int64){
+//                            print("Num = " + String(o))
+//                            self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)]) { (error) in
+//                                if let error = error {
+//                                    print("Error updating document: \(error)")
+//                                } else {
+//                                    if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//                                        // Use the picked image
+//
+//                                        print("one...")
+//                                        let cropper = CropperViewController(originalImage: pickedImage)
+//                                        print("two...")
+//                                        cropper.delegate = self
+//                                        print("three...")
+//                                        picker.dismiss(animated: true) {
+//                                            self.present(cropper, animated: true, completion: nil)
+//                                        }
+//                                        print("four...")
+//                                    }
+//                                }
+//                            }
+//
+//                        }
+//                    }else{
+//                        if let n = document.data()?["numad"] as? Int64{
+//                            self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["numad" : (n+1)])
+//                            if let o = document.data()?["pics"] as? Int64{
+//                                print("Num = " + String(o))
+//                                self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)]) { (error) in
+//                                    if let error = error {
+//                                        print("Error updating document: \(error)")
+//                                    } else {
+//
+//                                        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//                                            // Use the picked image
+//
+//                                            print("one...")
+//                                            let cropper = CropperViewController(originalImage: pickedImage)
+//                                            print("two...")
+//                                            cropper.delegate = self
+//                                            print("three...")
+//                                            picker.dismiss(animated: true) {
+//                                                self.present(cropper, animated: true, completion: nil)
+//                                            }
+//                                            print("four...")
+//                                        }
+//                                    }
+//                                }
+//
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
             
     }
     
@@ -323,66 +371,69 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func onPhoto(_ sender: Any) {
         print("Press1")
-        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument {(document, error) in
-            if let document = document, document.exists {
-                let fieldo = document.data()?["premium"]
-                let date1o = document.data()?["premiumDate"]
-                let date2o = Date()
-                // use the field as desired
-                let dateFormatter = DateFormatter()
-                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                
-                if ((fieldo as! String != "no") && date1o as! String != ""){
-                    let date = dateFormatter.date(from:date1o as! String)!
-                    if (((date2o.timeIntervalSince(date) / (60 * 60 * 24)) <= 30)){
-                        let sb: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let nextVC = sb.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
-                        self.navigationController?.pushViewController(nextVC, animated: true)
-                        return
-                    }
-                }else{
-                    let field = document.data()?["pics"]
-                    let date1 = document.data()?["picsdate"]
-                    let date2 = Date()
-                    // use the field as desired
-                    if (field as! Int >= 10){
-                        self.showToast(message: "Maximized pics for the month...", font: UIFont.systemFont(ofSize: 16.0))
-                    }else{
-                        let sb: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let nextVC = sb.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
-                        self.navigationController?.pushViewController(nextVC, animated: true)
-                    }
-                }
-            }else {
-                // handle the error
-                print("error")
-            }
-            
-        }
+        let sb: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = sb.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+//        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument {(document, error) in
+//            if let document = document, document.exists {
+//                let fieldo = document.data()?["premium"]
+//                let date1o = document.data()?["premiumDate"]
+//                let date2o = Date()
+//                // use the field as desired
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//
+//                if ((fieldo as! String != "no") && date1o as! String != ""){
+//                    let date = dateFormatter.date(from:date1o as! String)!
+//                    if (((date2o.timeIntervalSince(date) / (60 * 60 * 24)) <= 30)){
+//                        let sb: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                        let nextVC = sb.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
+//                        self.navigationController?.pushViewController(nextVC, animated: true)
+//                        return
+//                    }
+//                }else{
+//                    let field = document.data()?["pics"]
+//                    let date1 = document.data()?["picsdate"]
+//                    let date2 = Date()
+//                    // use the field as desired
+//                    if (field as! Int >= 10){
+//                        self.showToast(message: "Maximized pics for the month...", font: UIFont.systemFont(ofSize: 16.0))
+//                    }else{
+//                        let sb: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                        let nextVC = sb.instantiateViewController(withIdentifier: "PhotoViewController") as! PhotoViewController
+//                        self.navigationController?.pushViewController(nextVC, animated: true)
+//                    }
+//                }
+//            }else {
+//                // handle the error
+//                print("error")
+//            }
+//
+//        }
     }
-    @IBAction func TopButPressed(_ sender: Any) {
-        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument {(document, error) in
-            if let document = document, document.exists {
-                let field = document.data()?["premium"] as? String
-                // use the field as desired
-                if (field == "no"){
-                    let story = UIStoryboard(name: "Main", bundle:nil)
-                    let vc = story.instantiateViewController(withIdentifier: "BuyViewController") as! BuyViewController
-                    (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
-                    (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
-                }else{
-                    //self.topbut.isEnabled = false
-                    Purchases.shared.restorePurchases {(customerInfo, error) in
-                        self.showToast2(message: "Purchase successfully restored...", font: UIFont.systemFont(ofSize: 16.0))
-                    }
-                }
-              } else {
-                // handle the error
-                  print("error")
-              }
-            }
-    }
+//    @IBAction func TopButPressed(_ sender: Any) {
+//        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument {(document, error) in
+//            if let document = document, document.exists {
+//                let field = document.data()?["premium"] as? String
+//                // use the field as desired
+//                if (field == "no"){
+//                    let story = UIStoryboard(name: "Main", bundle:nil)
+//                    let vc = story.instantiateViewController(withIdentifier: "BuyViewController") as! BuyViewController
+//                    (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+//                    (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
+//                }else{
+//                    //self.topbut.isEnabled = false
+//                    Purchases.shared.restorePurchases {(customerInfo, error) in
+//                        self.showToast2(message: "Purchase successfully restored...", font: UIFont.systemFont(ofSize: 16.0))
+//                    }
+//                }
+//              } else {
+//                // handle the error
+//                  print("error")
+//              }
+//            }
+//    }
     
 }
 

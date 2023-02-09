@@ -9,7 +9,7 @@ import Vision
 import FirebaseFirestore
 import Firebase
 
-class OCRViewController: UIViewController {
+class OCRViewController: UIViewController, UITextViewDelegate {
 
     var db = Firestore.firestore()
     var selectedImage: UIImage?
@@ -21,10 +21,25 @@ class OCRViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Image Results"
+        txt1.delegate=self
+        txt1.text = "Show image results after prompt input..."
+        txt1.textColor = UIColor.lightGray
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.addDoneButtonOnKeyboard()
 
       }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Placeholder"
+            textView.textColor = UIColor.lightGray
+        }
+    }
     override func viewDidAppear(_ animated: Bool) {
         performOCR()
     }
@@ -81,60 +96,73 @@ class OCRViewController: UIViewController {
   }
     @IBAction func update(_ sender: Any) {
 
-        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument { document, err in
-            if let document = document, document.exists {
-                let field = document.data()?["premium"]
-                let date1 = document.data()?["premiumDate"]
-                let date2 = Date()
-                // use the field as desired
-                let dateFormatter = DateFormatter()
-                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                
-                if ((field as! String != "no") && date1 as! String != ""){
-                    let date = dateFormatter.date(from:date1 as! String)!
-                    if (((date2.timeIntervalSince(date) / (60 * 60 * 24)) <= 30)){
-                        self.txt2.text = "AI response loading..."
-                        APICaller.shared.getResponse(input: self.txt1.text) { [weak self] result in
-                            switch result {
-                            case .success(let output):
-                                DispatchQueue.main.async {
-                                    self?.txt2.text = output
-                                }
-                            case .failure(let error):
-                                DispatchQueue.main.async {
-                                    self?.txt2.text = error.localizedDescription
-                                }
-                            }
-                        }
-                    }
-                        
-                    }else{
-                        if let o = document.data()?["pics"] as? Int64{
-                            print("Num = " + String(o))
-                            if (o >= 10){
-                                self.showToast(message: "Unfortunately you used up your AI call limit this month.", font: UIFont.systemFont(ofSize: 16.0))
-                            }else{
-                                self.txt2.text = "AI response loading..."
-                                APICaller.shared.getResponse(input: self.txt1.text) { [weak self] result in
-                                    switch result {
-                                    case .success(let output):
-                                        DispatchQueue.main.async {
-                                            self?.txt2.text = output
-                                        }
-                                    case .failure(let error):
-                                        DispatchQueue.main.async {
-                                            self?.txt2.text = error.localizedDescription
-                                        }
-                                    }
-                                }
-                                self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)])
-                            }
-                        }
-                    }
-                    
+//        db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).getDocument { document, err in
+//            if let document = document, document.exists {
+//                let field = document.data()?["premium"]
+//                let date1 = document.data()?["premiumDate"]
+//                let date2 = Date()
+//                // use the field as desired
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//
+//                if ((field as! String != "no") && date1 as! String != ""){
+//                    let date = dateFormatter.date(from:date1 as! String)!
+//                    if (((date2.timeIntervalSince(date) / (60 * 60 * 24)) <= 30)){
+//                        self.txt2.text = "AI response loading..."
+//                        APICaller.shared.getResponse(input: self.txt1.text) { [weak self] result in
+//                            switch result {
+//                            case .success(let output):
+//                                DispatchQueue.main.async {
+//                                    self?.txt2.text = output
+//                                }
+//                            case .failure(let error):
+//                                DispatchQueue.main.async {
+//                                    self?.txt2.text = error.localizedDescription
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//                    }else{
+//                        if let o = document.data()?["pics"] as? Int64{
+//                            print("Num = " + String(o))
+//                            if (o >= 10){
+//                                self.showToast(message: "Unfortunately you used up your AI call limit this month.", font: UIFont.systemFont(ofSize: 16.0))
+//                            }else{
+//                                self.txt2.text = "Response loading..."
+//                                APICaller.shared.getResponse(input: self.txt1.text) { [weak self] result in
+//                                    switch result {
+//                                    case .success(let output):
+//                                        DispatchQueue.main.async {
+//                                            self?.txt2.text = output
+//                                        }
+//                                    case .failure(let error):
+//                                        DispatchQueue.main.async {
+//                                            self?.txt2.text = error.localizedDescription
+//                                        }
+//                                    }
+//                                }
+//                                self.db.collection("users").document(UserDefaults.standard.object(forKey: "id") as! String).updateData(["pics" : (o+1)])
+//                            }
+//                        }
+//                    }
+//
+//                }
+//            }
+        txt2.text = "AI Response loading..."
+        APICaller.shared.getResponse(input: self.txt1.text) { [weak self] result in
+            switch result {
+            case .success(let output):
+                DispatchQueue.main.async {
+                    self?.txt2.text = output
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.txt2.text = error.localizedDescription
                 }
             }
+        }
     }
     
     func addDoneButtonOnKeyboard()

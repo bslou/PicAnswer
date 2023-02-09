@@ -47,31 +47,31 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        Auth.auth().createUser(withEmail: email!, password: password!) { (authResult, error) in
-            if let error = error {
-                self.showToast(message: error.localizedDescription, font: .systemFont(ofSize: 14.0))
-            } else {
-                let user = Auth.auth().currentUser
-                if let user = user {
-                    let userData = ["email": email!, "premium": "no", "premiumDate": "", "pics": (0), "picsdate": Date(), "numad": (1)]
-                    db.collection("users").document(user.uid).setData(userData as [String : Any]) { (error) in
-                        if let error = error {
-                            self.showToast(message: error.localizedDescription, font: .systemFont(ofSize: 14.0))
-                        } else {
-                            UserDefaults.standard.set(user.uid, forKey: "id")
-                            if UserDefaults.standard.object(forKey: "id") != nil{
-                                let story = UIStoryboard(name: "Main", bundle:nil)
-                                let vc = story.instantiateViewController(withIdentifier: "BuyViewController") as! BuyViewController
-                                (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
-                                (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
-                            }
-                        }
-                    }
-                }else{
-                    self.showToast(message: "Email registration error", font: .systemFont(ofSize: 14.0))
-                }
-            }
-        }
+//        Auth.auth().createUser(withEmail: email!, password: password!) { (authResult, error) in
+//            if let error = error {
+//                self.showToast(message: error.localizedDescription, font: .systemFont(ofSize: 14.0))
+//            } else {
+//                let user = Auth.auth().currentUser
+//                if let user = user {
+//                    let userData = ["email": email!, "premium": "no", "premiumDate": "", "pics": (0), "picsdate": Date(), "numad": (1)]
+//                    db.collection("users").document(user.uid).setData(userData as [String : Any]) { (error) in
+//                        if let error = error {
+//                            self.showToast(message: error.localizedDescription, font: .systemFont(ofSize: 14.0))
+//                        } else {
+//                            UserDefaults.standard.set(user.uid, forKey: "id")
+//                            if UserDefaults.standard.object(forKey: "id") != nil{
+//                                let story = UIStoryboard(name: "Main", bundle:nil)
+//                                let vc = story.instantiateViewController(withIdentifier: "BuyViewController") as! BuyViewController
+//                                (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+//                                (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
+//                            }
+//                        }
+//                    }
+//                }else{
+//                    self.showToast(message: "Email registration error", font: .systemFont(ofSize: 14.0))
+//                }
+//            }
+//        }
 
 
     }

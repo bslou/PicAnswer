@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>PicAnswer would like to use photos to solve the problem within the image.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>PicAnswer would like to use the camera for taking a picture and solving the problem within it.</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-7343484395424686~7655782098</string>
 	<key>GADIsAdManagerApp</key>

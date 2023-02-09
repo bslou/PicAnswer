@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import RevenueCat
+//import RevenueCat
 import FirebaseCore
 import GoogleMobileAds
 
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        Purchases.configure(withAPIKey: "appl_lwdtSomfkCTqXiIfyzvGhspVIkA")
+        //Purchases.configure(withAPIKey: "appl_lwdtSomfkCTqXiIfyzvGhspVIkA")
         APICaller.shared.setup()
         return true
     }

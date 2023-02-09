@@ -19,17 +19,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidAppear(_ animated: Bool) {
 //        self.navigationController?.pushViewController(CameraViewController(), animated: false)
         //UserDefaults.standard.removeObject(forKey: "id")
-        if (UserDefaults.standard.object(forKey: "id") != nil){
+        //if (UserDefaults.standard.object(forKey: "id") != nil){
+        if UserDefaults.standard.object(forKey: "ads") == nil
+        {
+            UserDefaults.standard.set(0, forKey: "ads")
             let story = UIStoryboard(name: "Main", bundle:nil)
             let vc = story.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
             (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
             (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
         }else{
             let story = UIStoryboard(name: "Main", bundle:nil)
-            let vc = story.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+            let vc = story.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
             (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
             (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
         }
+//        }else{
+//            let story = UIStoryboard(name: "Main", bundle:nil)
+//            let vc = story.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+//            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+//            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
+//        }
     }
 }
 

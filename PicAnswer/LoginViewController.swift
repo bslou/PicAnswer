@@ -44,35 +44,35 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
 
         
-        Auth.auth().signIn(withEmail: email ?? "", password: password ?? "") { [weak self] authResult, error in
-            if let err = error{
-                self?.showToast(message: err.localizedDescription, font: UIFont.systemFont(ofSize: 16.0))
-            }else{
-                guard let strongSelf = self else { return }
-                db.collection("users").document((authResult?.user.uid)!).getDocument {(document, error) in
-                    UserDefaults.standard.set(authResult?.user.uid, forKey: "id")
-                    if let document = document, document.exists {
-                        let field = document.data()?["premium"] as? String
-                        if (field == "no"){
-                            //redirect to iap screen
-                            let story = UIStoryboard(name: "Main", bundle:nil)
-                            let vc = story.instantiateViewController(withIdentifier: "BuyViewController") as! BuyViewController
-                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
-                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
-                        }else{
-                            let story = UIStoryboard(name: "Main", bundle:nil)
-                            let vc = story.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
-                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
-                        }
-                    }else{
-                        self?.showToast(message: "Error logging in", font: .systemFont(ofSize: 14.0))
-                    }
-                
-                }
-
-            }
-       }
+//        Auth.auth().signIn(withEmail: email ?? "", password: password ?? "") { [weak self] authResult, error in
+//            if let err = error{
+//                self?.showToast(message: err.localizedDescription, font: UIFont.systemFont(ofSize: 16.0))
+//            }else{
+//                guard let strongSelf = self else { return }
+//                db.collection("users").document((authResult?.user.uid)!).getDocument {(document, error) in
+//                    UserDefaults.standard.set(authResult?.user.uid, forKey: "id")
+//                    if let document = document, document.exists {
+//                        let field = document.data()?["premium"] as? String
+//                        if (field == "no"){
+//                            //redirect to iap screen
+//                            let story = UIStoryboard(name: "Main", bundle:nil)
+//                            let vc = story.instantiateViewController(withIdentifier: "BuyViewController") as! BuyViewController
+//                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+//                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
+//                        }else{
+//                            let story = UIStoryboard(name: "Main", bundle:nil)
+//                            let vc = story.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+//                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = vc
+//                            (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.makeKeyAndVisible()
+//                        }
+//                    }else{
+//                        self?.showToast(message: "Error logging in", font: .systemFont(ofSize: 14.0))
+//                    }
+//
+//                }
+//
+//            }
+//       }
 
     }
     @IBAction func Reg(_ sender: Any) {
