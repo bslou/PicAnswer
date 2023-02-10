@@ -468,7 +468,7 @@
                                 <rect key="frame" x="63" y="257" width="265" height="311"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solves text within images but not graphs or artwork yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ju-Fb-Ozw">
-                                <rect key="frame" x="0.0" y="162" width="393" height="59"/>
+                                <rect key="frame" x="32" y="162" width="328" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="wyb-vB-JO3"/>
                                 </constraints>
@@ -487,11 +487,11 @@
                             <constraint firstItem="cnz-mN-g0l" firstAttribute="bottom" secondItem="0if-cU-3gi" secondAttribute="bottom" constant="77" id="HHd-WV-B09"/>
                             <constraint firstItem="dfE-EL-JbD" firstAttribute="leading" secondItem="cnz-mN-g0l" secondAttribute="leading" constant="78" id="HLZ-NA-Dcq"/>
                             <constraint firstItem="eck-sO-iJw" firstAttribute="top" secondItem="cnz-mN-g0l" secondAttribute="top" constant="24" id="HYl-jM-iuc"/>
-                            <constraint firstItem="eck-sO-iJw" firstAttribute="leading" secondItem="6ju-Fb-Ozw" secondAttribute="leading" id="HYq-f2-iAX"/>
+                            <constraint firstItem="eck-sO-iJw" firstAttribute="leading" secondItem="6ju-Fb-Ozw" secondAttribute="leading" constant="-32" id="HYq-f2-iAX"/>
                             <constraint firstItem="dfE-EL-JbD" firstAttribute="leading" secondItem="0if-cU-3gi" secondAttribute="leading" id="J5n-6A-Ehp"/>
                             <constraint firstItem="JrI-6d-XRd" firstAttribute="centerX" secondItem="dfE-EL-JbD" secondAttribute="centerX" id="Jx4-7E-cm7"/>
                             <constraint firstItem="0if-cU-3gi" firstAttribute="top" secondItem="dfE-EL-JbD" secondAttribute="bottom" constant="8" id="brL-uM-4Pw"/>
-                            <constraint firstItem="eck-sO-iJw" firstAttribute="trailing" secondItem="6ju-Fb-Ozw" secondAttribute="trailing" id="fx0-ax-hIE"/>
+                            <constraint firstItem="eck-sO-iJw" firstAttribute="trailing" secondItem="6ju-Fb-Ozw" secondAttribute="trailing" constant="33" id="fx0-ax-hIE"/>
                             <constraint firstItem="JrI-6d-XRd" firstAttribute="leading" secondItem="cnz-mN-g0l" secondAttribute="leading" constant="63" id="iT2-4M-XVb"/>
                             <constraint firstItem="eck-sO-iJw" firstAttribute="leading" secondItem="cnz-mN-g0l" secondAttribute="leading" id="lAZ-zS-Adc"/>
                             <constraint firstItem="cnz-mN-g0l" firstAttribute="trailing" secondItem="JrI-6d-XRd" secondAttribute="trailing" constant="65" id="naI-Ih-lrE"/>

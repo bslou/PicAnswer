@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>PicAnswer would like to use photos to solve the problem within the image.</string>
+	<string>PicAnswer would like access to your photo gallery for solving questions within the picture</string>
 	<key>NSCameraUsageDescription</key>
-	<string>PicAnswer would like to use the camera for taking a picture and solving the problem within it.</string>
+	<string>PicAnswer would like to use your camera for solving questions within the picture</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-7343484395424686~7655782098</string>
 	<key>GADIsAdManagerApp</key>
